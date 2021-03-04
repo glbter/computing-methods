@@ -1,5 +1,6 @@
 import pandas as pd
 from math import fabs
+import timeit
 
 
 def func_mul(f1, f2):
@@ -25,10 +26,10 @@ def diff_polynomial(arr, j):
     for i in range(len(arr)):
         if i != j:
             res = func_mul(res, diff_func(arr[i]))
-    # python bug : lambda doesn't work in cycle as should be
+    return res
+# python bug : lambda doesn't work in cycle as should be
     #result = [f(arr[i]) for i in range(len(arr)) if i != j][0]
     #[(lambda x: x-arr[i]) for i in range(len(arr)) if i != j][0]
-    return res
 
 
 def lagrange_polynomial(df: pd.DataFrame):
@@ -116,7 +117,6 @@ def newtons_polynomial(df: pd.DataFrame):
     return f
 
 
-
 def main():
     func = lambda x: 1 / x
     d1 = [0.1, 0.5, 0.9, 1.3]
@@ -127,21 +127,22 @@ def main():
     dt1 = pd.DataFrame([d1, y1], index=['x', 'y'], columns=['1', '2', '3', '4'])
     dt2 = pd.DataFrame([d2, y2], index=['x', 'y'], columns=['1', '2', '3', '4'])
     x_ = 0.8
+
+    start = timeit.default_timer()
     L1 = lagrange_polynomial(dt1)
     yL_1 = L1(x_)
+    print("Computing time is :", (timeit.default_timer() - start) * 1_000)
     err1 = fabs(func(x_) - yL_1)
-    print(yL_1, err1)
+    print("Lagrange polynomial")
+    print(f"result: {yL_1}, absolute error: {err1}")
 
+    start = timeit.default_timer()
     N = newtons_polynomial(dt2)
     yN_1 = N(x_)
+    print("Computing time is :", (timeit.default_timer() - start) * 1_000)
     err2 = fabs(func(x_) - yN_1)
-    print(yN_1, err2)
-    #
-    # L2 = lagrange_polynomial(dt2)
-    # y_2 = L2(x_)
-    # err2 = fabs(func(x_) - y_2)
-    # print(y_2, err2)
-    #print(newton_table(5))
+    print("Newtons polynomial")
+    print(f"result: {yN_1}, absolute error: {err2}")
 
 
 if __name__ == "__main__":
