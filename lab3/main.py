@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 plt.style.use('classic')
 import seaborn as sns
 sns.set()
-from lab5.main import matrix_copy
+from lab6.main import matrix_copy
 from lab2.main import func_sum, func_const_mul, diff_func
 
 
