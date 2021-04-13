@@ -37,6 +37,7 @@ def half_division(func, left, right, precision):
         f_right = func(right)
         avg = (left + right) / 2
         f_avg = func(avg)
+        print(f"a={left:.5f} b={right:.5f} f(a)={f_left:.5f} f(b)={f_right:.5f} (a+b)/2 ={avg:.5f} f((a+b)/2) = {f_avg:.5f}")
         if f_left * f_avg < 0:
             right = avg
         elif f_avg * f_right < 0:
@@ -53,8 +54,10 @@ def newtons_method(func, derivative1, derivative2, x, precision):
     x_prev = x
     x -= func(x) / derivative1(x)
     while fabs(x - x_prev) >= precision:
+        print(f"x = {x_prev:.5f} f(x) = {func(x_prev):.5f} f'(x) = {derivative1(x_prev):.5f} -f(x)/f'(x) = -{(func(x_prev) / derivative1(x_prev)):.5f}")
         x_prev = x
         x = x - func(x) / derivative1(x)
+    print(f"x = {x:.5f} f(x) = {func(x):.5f} f'(x) = {derivative1(x):.5f} -f(x)/f'(x) = -{(func(x) / derivative1(x)):.5f}")
     return with_precision(x, precision)
 
 
@@ -163,20 +166,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    #
-    # def y_test(x):
-    #     return e ** (2 * x) + 3 * x - 4
-    #
-    # def y_test_(x):
-    #     return 2 * e ** (2 * x) + 3
-    #
-    # def y_test__(x):
-    #     return 4 * e ** (2 * x)
-    #
-    # def xf_test(x):
-    #     return log(4 - 3 * x) / 2
-    # print(half_division(y_test, 0.4, 0.6, 0.001))
-    # print(newtons_method(y_test, y_test_, y_test__, 0.6, 0.001))
-    # print(iteration_method(xf_test, 0.475, 0.64, 0.001))
-

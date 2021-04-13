@@ -41,6 +41,7 @@ def lagrange_polynomial(df: pd.DataFrame):
         y_ = y[i]
         x_ = (f(x[i]))
         const = y_ / x_
+        print(f"y = {y_:.5f} (xi - allx) = {x_:.5f} y/x = {const:.5f}")
         res = func_sum(res, func_const_mul(f, const))
     return res
 
@@ -114,6 +115,7 @@ def newtons_polynomial(df: pd.DataFrame):
                 func = func_mul(func, diff_func(vtable[0][j]))
         func = func_const_mul(func, mul)
         f = func_sum(f, func)
+    print(table[0])
     return f
 
 
