@@ -14,3 +14,14 @@ repo for computing methods labs variant 23
    - rectangle method
    - trapeze method
    - Simpson's method
+- lab 5 - solving general differential equations
+   - Runge–Kutta fourth-order method
+   - Adams method
+   - Adams–Bashforth-Moulton method
+- lab 6 - solving systems of linear equations
+   - Gauss method
+   - determinant with Gauss method
+   - inverse matrix with Gauss method
+   - tridiagonal matrix algorithm
+   - iterative method
+   - Gauss–Seidel method
