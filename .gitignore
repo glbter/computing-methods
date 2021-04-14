@@ -9,3 +9,4 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+Gradient_descent.ipynb
