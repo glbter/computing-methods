@@ -1,4 +1,5 @@
 import numpy as np
+from utils import matrix_copy
 
 
 class Gauss:
@@ -71,7 +72,3 @@ class Gauss:
         matrix = matrix_copy(matrix)
         matrix, _ = Gauss._first_step(matrix)
         return Gauss._second_step(matrix)
-
-
-def matrix_copy(matrix):
-    return [row.copy() for row in matrix]
