@@ -18,7 +18,8 @@ class AdamsMethods:
 
         for x in drange(x0 + 4*h, xk+h, h):
             yk_pred, zk_pred, fk1, gk1 = AdamsMethods._predictor_step(f, g, x, xyzgf, h)
-            yk, zk, fk1, gk1 = AdamsMethods._corrector_step(fk1, gk1, xyzgf, h, f, g, x)
+            for i in range(4): #can be imroved using |y - y_prev| < E
+                yk, zk, fk1, gk1 = AdamsMethods._corrector_step(fk1, gk1, xyzgf, h, f, g, x)
             xyzgf.append((x, yk, zk, gk1, fk1))
         return np.asarray(xyzgf)[:, :2]
 
