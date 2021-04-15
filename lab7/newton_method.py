@@ -30,7 +30,7 @@ def newtons_method3(system, j, x1, x2, precision):
 
 
 # method using det J and A1 A2 for solving
-def newton2(system, j, x1, x2, prec):
+def newton_method(system, j, x1, x2, prec):
     x = np.asarray([x1, x2])
     system = np.asarray(system)
     j = np.asarray(j)
