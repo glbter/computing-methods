@@ -12,7 +12,9 @@ def println(something):
 if __name__ == '__main__':
     print('Метод Гаусса')
     println(Gauss.solve(matrix1))
+    print("Детермінант матриці")
     println(Gauss.find_determinant(matrix1))
+    print("Обернена матриця")
     println(Gauss.find_inverse(matrix1))
 
     print('Метод прогону')
