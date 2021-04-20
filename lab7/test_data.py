@@ -14,13 +14,13 @@ system_special = [
 ]
 
 system_super_special = [
-    lambda x1, x2: -np.arctan(x2),
-    lambda x1, x2: np.sqrt(2*x1**2 - x1 - 1)
+    lambda x1, x2: np.arctan(x2),
+    lambda x1, x2: np.sqrt(-2*x1**2 + x1 + 1)
 ]
 
 system_super_special2 = [
-    lambda x1, x2: -np.arctan(x2),
-    lambda x1, x2: -np.sqrt(2*x1**2 - x1 - 1)
+    lambda x1, x2: np.arctan(x2),
+    lambda x1, x2: -np.sqrt(-2*x1**2 + x1 + 1)
 ]
 
 special_jacobian = [
