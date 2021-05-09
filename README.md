@@ -4,7 +4,7 @@ repo for computing methods labs variant 23
 - lab1 - solving equations
    - half division method
    - Newton's method
-   - iteration method
+   - fixed-point iteration method
 - lab2 - interpolation
    - Lagrange method
    - Newton's method
@@ -25,3 +25,6 @@ repo for computing methods labs variant 23
    - tridiagonal matrix algorithm
    - iterative method
    - Gauss–Seidel method
+- lab 7 - solving systems of equations
+   - Newton's method
+   -  fixed-point iteration method
